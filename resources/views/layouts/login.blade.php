@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,8 @@
     <title></title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <!--Jqueryリンク-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -22,16 +25,18 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="images/logo.png"></a></h1>
+        <h1><a href="/top"><img src="images/main_logo.png"></a></h1>
             <div id="">
-                <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
+                <div id="" class="menu-trigger">
+                    <p class="accordion-title">{{ auth()->user()->username }}さん
+                            <ul class="accordion-content gnavi">
+                            <li><a href="/top">ホーム</a></li>
+                            <li><a href="/profile">プロフィール</a></li>
+                            <li><a href="/logout">ログアウト</a></li>
+                            </ul>
+                        <img src="images/dawn.png"></a>
+                    </p>
                 <div>
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
             </div>
         </div>
     </header>
@@ -41,10 +46,10 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                <p>{{ auth()->user()->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
-                <p>〇〇名</p>
+                <p>名</p>
                 </div>
                 <p class="btn"><a href="">フォローリスト</a></p>
                 <div>
@@ -58,7 +63,7 @@
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="{{ asset('/js/app.js') }}"></script>
     <script src="JavaScriptファイルのURL"></script>
 </body>
 </html>
