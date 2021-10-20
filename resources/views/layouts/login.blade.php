@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="ページの内容を表す文章" />
     <title></title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset ('css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset ('/css/style.css') }}">
     <!--Jqueryリンク-->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!--スマホ,タブレット対応-->
@@ -25,19 +25,17 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="images/main_logo.png"></a></h1>
-            <div id="">
-                <div id="" class="menu-trigger">
-                    <p class="accordion-title">{{ auth()->user()->username }}さん
-                            <ul class="accordion-content gnavi">
-                            <li><a href="/top">ホーム</a></li>
-                            <li><a href="/profile">プロフィール</a></li>
-                            <li><a href="/logout">ログアウト</a></li>
-                            </ul>
-                        <img src="images/dawn.png"></a>
-                    </p>
-                <div>
-            </div>
+            <h1><a href="/top"><img src="{{ asset ('/images/main_logo.png') }}"></a></h1>
+            <div id="" class="menu-trigger">
+                <p class="accordion-title">{{ auth()->user()->username }}さん
+                    <ul class="accordion-content gnavi">
+                    <li><a href="/top">ホーム</a></li>
+                    <li><a href="/users/profile">プロフィール</a></li>
+                    <li><a href="/logout">ログアウト</a></li>
+                    </ul>
+                    <img src="{{ asset ('/images/dawn.png') }}"></a>
+                </p>
+            <div>
         </div>
     </header>
     <div id="row">
@@ -49,16 +47,15 @@
                 <p>{{ auth()->user()->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
-                <p>名</p>
-                </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
-                <div>
-                <p>フォロワー数</p>
-                <p>〇〇名</p>
-                </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <p>{{$follow}}名</p>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="/follows/followList">フォローリスト</a></p>
+            <div>
+                <p>フォロワー数</p>
+                <p>{{$follower}}名</p>
+            </div>
+            <p class="btn"><a href="/follows/followerList">フォロワーリスト</a></p>
+            <p class="btn"><a href="/users/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>

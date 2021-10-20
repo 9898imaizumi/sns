@@ -36,11 +36,19 @@ Route::post('posts/create', 'PostsController@create');
 Route::post('posts/update', 'PostsController@update');
 Route::get('post/{id}/delete', 'PostsController@delete');
 
-Route::get('/profile','UsersController@profile');
+Route::get('users/profile','UsersController@profile');
+Route::post('users/profile/update','UsersController@update');
+Route::get('users/{id}/otherProfile','UsersController@otherProfile');
+Route::get('users/{id}/other_searchFollow','UsersController@other_searchFollow');
+Route::get('users/{id}/other_searchFollow_del','UsersController@other_searchFollow_del');
 
-Route::get('/search','UsersController@index');
+Route::get('users/search','UsersController@search');
+Route::post('users/searchResult','UsersController@searchResult');
+Route::get('users/{id}/searchFollow','UsersController@searchFollow');
+Route::get('users/{id}/searchFollow_del','UsersController@searchFollow_del');
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+
+Route::get('follows/followList','FollowsController@followList');
+Route::get('follows/followerList','FollowsController@followerList');
 
 Route::get('/logout','Auth\LoginController@logout');

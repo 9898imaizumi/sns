@@ -20,11 +20,69 @@ header{
     flex: 0 0 19%;
     border-left: 1px solid #6C6C6C;
 }
-.accordion-title{
-  position: relative;
+
+
+/* ログアウトページ */
+.logout{
+  background:linear-gradient(to bottom, #333c66 55%, #d16247);
+  height: 100vh;
+}
+.login_header{
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-top: 200px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 200%;
+  color: #fff;
+}
+.login{
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 500px;
+  margin: 0 auto;
+  padding-top: 500px;
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  font-size: 120%;
+  color: #fff;
+}
+.login span{
+  padding: 30px;
+  background-color: black;
+  opacity: 0.5;
+}
+
+/* 投稿ページ */
+.table img{
+  width: 60px;
+}
+.edit img{
+  width: 60px;
 }
 
 /* アコーディオンメニュー */
+#head{
+  display: flex;
+  flex-wrap: nowrap;
+}
+.menu-trigger{
+  margin: 0 0 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+  margin-top: 20px;
+  margin-right: 80px;
+}
+.accordion-title{
+  position: relative;
+}
 .accordion-title::after {
   content: "";
   position: absolute;

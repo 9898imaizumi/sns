@@ -9,11 +9,14 @@ class PostsController extends Controller
 {
     //
     public function index(){
-        $login_user_id = Auth::id();
-        // dd($login_user_id);
-        $count_follow =\DB::table('follows')->where('follower', $login_user_id)->count();
-        $count_follower = \DB::table('follows')->where('follow', $login_user_id)->count();
-        return view('posts.index',['follow'=>$count_follow, 'follower'=>$count_follower]);
+        $list = \DB::table('posts')
+        ->join('users','posts.user_id','=','users.id')
+        ->select('users.username','posts.posts', 'posts.id', 'users.images', 'posts.created_at')
+        ->orderBy('posts.created_at', 'DESC')
+        ->get();
+        // dd($list);
+        return view('follows.followList', ['list'=>$list]);
+
     }
     public function posts()
     {
@@ -26,7 +29,7 @@ class PostsController extends Controller
         return view('posts.index', ['list'=>$list]);
     }
 
-
+// 新規投稿 //
     public function create(Request $request){
         $login_user_id = Auth::id();
         // dd($login_user_id);
@@ -40,6 +43,7 @@ class PostsController extends Controller
         ]);
         return redirect('/top');
     }
+// アップデート //
     public function update(Request $request)
     {
         $id = $request->input('id');
@@ -52,7 +56,7 @@ class PostsController extends Controller
 
         return redirect('/top');
     }
-
+// 削除 //
     public function delete($id)
     {
         \DB::table('posts')

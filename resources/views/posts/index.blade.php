@@ -16,7 +16,7 @@
       <td>{{ $list->username }}</td>
       <td>{{ $list->posts }}</td>
       <td>{{ $list->created_at }}</td>
-      <td><img src="images/dawn.png{{ $list->images }}"></td>
+      <td><img src="{{ asset ('/images/'.$list->images) }}"></td>
       <td>
         <div class="edit">
           <a href="" class="modalopen" data-target="modal{{$list->id}}">

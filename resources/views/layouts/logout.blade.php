@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="ページの内容を表す文章" />
     <title></title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/logout.css">
+    <link rel="stylesheet" href="{{ asset ('css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset ('/css/style.css') }}">
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -19,10 +19,12 @@
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
 </head>
-<body>
+<body class="logout">
     <header>
+        <div class="login_header">
         <h1><img src="images/main_logo.png"></h1>
         <p>Social Network Service</p>
+        </div>
     </header>
     <div id="container">
         @yield('content')
