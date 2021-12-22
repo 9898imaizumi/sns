@@ -19,13 +19,15 @@ class Controller extends BaseController
     $this->middleware('auth');
     $this->middleware(function ($request, $next) {
         $follow_list = \DB::table('follows')->where('follow', Auth::id())->select('follower')->get()->toArray();
-
         View::share('follow_list', $follow_list);
 
+        $user_id = \DB::table('posts')->where('user_id', Auth::id())->select('user_id')->get()->toArray();
+        View::share('user_id', $user_id);
+
         $login_user_id = Auth::id();
-        $count_follow =\DB::table('follows')->where('follower', $login_user_id)->count();
+        $count_follow =\DB::table('follows')->where('follow', $login_user_id)->count();
         View::share('follow', $count_follow);
-        $count_follower =\DB::table('follows')->where('follow', $login_user_id)->count();
+        $count_follower =\DB::table('follows')->where('follower', $login_user_id)->count();
         View::share('follower', $count_follower);
 
 

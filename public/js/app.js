@@ -25,7 +25,7 @@ $(function () {
       return false;
     });
   });
-  $('.modalClose,.modal-main,.modal-bg').on('click', function () {
+  $('.modalClose').on('click', function () {
     $('.js-modal').fadeOut();
     return false;
   });

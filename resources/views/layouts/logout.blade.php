@@ -20,15 +20,12 @@
     <!--OGPタグ/twitterカード-->
 </head>
 <body class="logout">
-    <header>
+    <div class="insert_wrapper">
         <div class="login_header">
-        <h1><img src="images/main_logo.png"></h1>
-        <p>Social Network Service</p>
+            <h1><img src="images/main_logo.png"></h1>
         </div>
-    </header>
-    <div id="container">
         @yield('content')
-    </div >
+    </div>
     <script src="JavaScriptファイルのURL"></script>
     <script src="JavaScriptファイルのURL"></script>
 </body>

@@ -18,11 +18,13 @@ class FollowsController extends Controller
 
         $list = \DB::table('posts')
         ->join('users','posts.user_id','=','users.id')
-        ->join('follows','follower','=','users.id')
+        ->join('follows','follows.follower','=','users.id')
         ->where('follow',Auth::id())
-        ->select('users.username','posts.posts', 'posts.id', 'users.images', 'posts.created_at')
+        ->select('users.username','posts.posts', 'posts.id', 'users.images', 'posts.created_at','posts.user_id')
         ->orderBy('posts.created_at', 'DESC')
+
         ->get();
+        //dd($list);
         return view('follows.followList', ['list'=>$list, 'icon'=>$icon]);
     }
     public function followerList(){
@@ -39,6 +41,6 @@ class FollowsController extends Controller
         ->select('users.username','posts.posts', 'posts.id', 'users.images', 'posts.created_at')
         ->orderBy('posts.created_at', 'DESC')
         ->get();
-        return view('follows.followList', ['list'=>$list, 'icon'=>$icon]);
+        return view('follows.followerList', ['list'=>$list, 'icon'=>$icon]);
     }
 }

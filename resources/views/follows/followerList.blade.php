@@ -1,25 +1,23 @@
 @extends('layouts.login')
 
 @section('content')
-<div class="">
-  <p>Follow List</p>
-  <table class='table table-hover'>
+<div class="follow_icon">
+  <p>Follower List</p>
+  <table class='follow_table table-hover'>
     @foreach ($icon as $icon)
     <tr>
-      <td><a href="/users/{{$icon->id}}/otherProfile"><img src="{{ asset ('/images/'.$icon->images) }}"></a></td>
+      <td><a class="icon_top" href="/users/{{$icon->id}}/otherProfile"><img src="{{ asset ('/images/'.$icon->images) }}"></a></td>
     </tr>
     @endforeach
     </table>
 </div>
-<div class='container'>
-    <h2 class='page-header'>投稿一覧</h2>
+<div class='post_container'>
     <table class='table table-hover'>
     @foreach ($list as $list)
     <tr>
-      <td><a href="/users/{{$icon->id}}/otherProfile"><img src="{{ asset ('/images/'.$list->images) }}"></a></td>
-      <td>{{ $list->username }}</td>
-      <td>{{ $list->posts }}</td>
-      <td>{{ $list->created_at }}</td>
+      <td><a class="icon_top" href="/users/{{$icon->id}}/otherProfile"><img src="{{ asset ('/images/'.$list->images) }}"></a></td>
+      <td><p class="username">{{ $list->username }}</p><p class="posts">{{ $list->posts }}</p></td>
+      <td><p class="created_at">{{ $list->created_at }}</p></td>
     </tr>
     @endforeach
     </table>

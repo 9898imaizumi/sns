@@ -25,16 +25,21 @@
 <body>
     <header>
         <div id = "head">
-            <h1><a href="/top"><img src="{{ asset ('/images/main_logo.png') }}"></a></h1>
+            <h1><a class="main_logo" href="/top"><img src="{{ asset ('/images/main_logo.png') }}"></a></h1>
             <div id="" class="menu-trigger">
-                <p class="accordion-title">{{ auth()->user()->username }}さん
+                <div>
+                    <p class="accordion-title">{{ auth()->user()->username }}さん</p>
+                </div>
+                <div>
                     <ul class="accordion-content gnavi">
                     <li><a href="/top">ホーム</a></li>
                     <li><a href="/users/profile">プロフィール</a></li>
                     <li><a href="/logout">ログアウト</a></li>
                     </ul>
-                    <img src="{{ asset ('/images/dawn.png') }}"></a>
-                </p>
+                </div>
+                <div>
+                    <a class="header_img"><img src="{{ asset ('/images/'.auth()->user()->images) }}"></a>
+                </div>
             <div>
         </div>
     </header>
@@ -43,19 +48,24 @@
             @yield('content')
         </div >
         <div id="side-bar">
-            <div id="confirm">
+            <div class="side_follow">
                 <p>{{ auth()->user()->username }}さんの</p>
-                <div>
+                <div class="follow_count">
                 <p>フォロー数</p>
                 <p>{{$follow}}名</p>
+                </div>
             </div>
-            <p class="btn"><a href="/follows/followList">フォローリスト</a></p>
-            <div>
+            <p class="list_btn"><a href="/follows/followList">フォローリスト</a></p>
+            <div class="side_follower">
+                <div class="follow_count">
                 <p>フォロワー数</p>
                 <p>{{$follower}}名</p>
+                </div>
             </div>
-            <p class="btn"><a href="/follows/followerList">フォロワーリスト</a></p>
-            <p class="btn"><a href="/users/search">ユーザー検索</a></p>
+            <p class="list_btn"><a href="/follows/followerList">フォロワーリスト</a></p>
+            <div class="search_side">
+            <p class="list_btn search_btn"><a href="/users/search">ユーザー検索</a></p>
+            </div>
         </div>
     </div>
     <footer>
